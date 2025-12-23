@@ -1,0 +1,14 @@
+#Editor configurations
+.vscode
+
+#environment variable files
+.env
+
+#node packages
+node_modules
+package-lock.json
+
+#some personal files
+spotify/runLearn.bat
+spotify/logo.svg
+learn.js

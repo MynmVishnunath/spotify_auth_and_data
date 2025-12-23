@@ -1,0 +1,129 @@
+:root {
+    --back_grond: rgba(0, 0, 0, 0.826);
+    --text_color: rgb(243, 255, 246);
+    --btn_color: rgba(119, 231, 125, 0.932);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 80px 0.5fr 1fr;
+    gap: 30px;
+    background: var(--back_grond);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    
+
+}
+
+.logo {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 30px;
+    grid-row-start: 1;
+    color: var(--text_color);
+    font-size: 20px;
+    margin-top: 15px;
+
+    .img {
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+}
+
+.about {
+    width: 100%;
+    grid-row-start: 2;
+    text-align: center;
+    color: var(--text_color);
+
+   
+
+    h1 {
+        width: 100%;
+        font-size: 60px;
+    }
+
+    p {
+        width: 100%;
+        font-size: 28px;
+    }
+}
+
+.userData {
+    grid-row-start: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+
+    
+}
+.profile-pic{
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+}
+.user-name {
+    font-size: 50px;
+}
+
+.user-email {
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.user-country {
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+
+h1 {
+    color: var(--text_color);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 90%;
+    text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --back_grond: rgb(243, 255, 246);
+        --text_color: rgba(0, 0, 0, 0.826);
+        --btn_color: rgb(90, 244, 97);
+
+    }
+
+    button {
+        color: var(--back_grond);
+    }
+}

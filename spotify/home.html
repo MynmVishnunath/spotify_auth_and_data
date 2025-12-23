@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is You</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="logo">
+        <div class="img">
+            <img src="logo.svg" alt="Spotify_img">
+        </div>
+        <div class="name">Spotify</div>
+    </div>
+    <div class="about">
+        <h1>Welcome Spotify, Enjoy Profile</h1>
+        <p>Enjoy Your Profile in a huge screen, spotify never give such a page to Enjoy yourself</p>
+    </div>
+
+    <div class="userData">
+        <div class="profile-pic">
+            <img src="" alt="user image">
+        </div>
+        <h1 class="user-name"></h1>
+        <h1 class="user-email"></h1>
+        <h1 class="user-country"></h1>
+
+    </div>
+    <script>
+        // Function to get full country name from ISO 3166-1 alpha-2 code
+        function getCountryName(countryCode, locale = 'en') {
+            try {
+                // Validate input
+                if (typeof countryCode !== 'string' || countryCode.length !== 2) {
+                    throw new Error('Country code must be a 2-letter string (ISO 3166-1 alpha-2)');
+                }
+
+                // Create Intl.DisplayNames instance
+                const regionNames = new Intl.DisplayNames([locale], { type: 'region' });
+
+                // Get full country name
+                const countryName = regionNames.of(countryCode.toUpperCase());
+
+                if (!countryName) {
+                    throw new Error('Invalid or unsupported country code');
+                }
+
+                return countryName.toUpperCase();
+            } catch (error) {
+                console.error(error.message);
+                return null;
+            }
+        }
+
+        // Example usage:
+        
+
+    </script>
+<script src="home.js"></script>
+</body>
+
+</html>
