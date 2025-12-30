@@ -140,6 +140,7 @@ app.get("/tockenPass", (req, res) => {
 
   // request for new access token
   const response = await fetch(authOptions.url, {
+    method:"POST",
     headers: {
       ...authOptions.headers
     },
@@ -183,17 +184,19 @@ console.log("request for profile",!req.session.spot_response?.refresh_token);
   while (req_flag) {
 console.log("loop");
     //request for get profile
+    console.log(req.session.spot_response.access_token);
     const prof_res = await fetch(prof_url, {
       headers: {
         Authorization: `Bearer ${req.session.spot_response.access_token}`,
 
       }
     })
-    
+    console.log(prof_res.status);
     //Checks request failed/
     if (prof_res.status === 401 || prof_res.status===403) {
       //request for new token
       const new_access_token = await RefreshTocken(req);
+      console.log(new_access_token.status);
      //if any error occured while requestin new access token
       if (new_access_token.status !== 200) {
         res.status(new_access_token.status).json(new_access_token)
