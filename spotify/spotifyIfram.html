@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Iframe</title>
+    <style>
+        #embed-iframe{
+            width: 0px;
+            height: 0px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="embed-iframe"></div>
+    <button id="next-song">Next Song</button>
+
+    <button>Play/Pause</button>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+    <script>
+        const songDB = {
+            playList: [
+                "spotify:track:15Q1Kdihi1GiebiKP4h61v",
+                "spotify:track:1TfqLAPs4K3s2rJMoCokcS",
+                "spotify:track:3hXX5v2JaVqDR3aeQcPAU9",
+                "spotify:track:4ghWQxRVDJfO3FN2qaPRwN",
+                "spotify:track:6f6CZPUqlcBRfwQ7153zjH"
+            ],
+            playListUrl: [
+                "https://www.youtube.com/watch?v=6LD30ChPsSs"
+            ],
+            nowPlayingIndex: 0
+        }
+        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            const element = document.getElementById('embed-iframe');
+            const nextSongbtn = document.getElementById('next-song');
+            const options = {
+                uri: 'spotify:track:3hXX5v2JaVqDR3aeQcPAU9',
+                width:0,
+                height:0,
+            };
+            const callback = (EmbedController) => {
+                nextSongbtn.addEventListener('click', () => {
+                    songDB.nowPlayingIndex = (songDB.playList.length === songDB.nowPlayingIndex + 1) ? 0 : songDB.nowPlayingIndex + 1;
+                    console.log(songDB.playList[songDB.nowPlayingIndex]);
+                    EmbedController.loadUri(songDB.playList[songDB.nowPlayingIndex]);
+                    EmbedController.play();
+                })
+
+            };
+            IFrameAPI.createController(element, options, callback);
+        };
+
+    </script>
+</body>
+
+</html>

@@ -15,7 +15,6 @@ const THE_URL = "https://accounts.spotify.com/authorize?";
    const {access_token, refresh_token} = response_json;
    console.log(response_json);
  }
- 
  //getTocken();
 
 const login = async ()=>{
