@@ -15,7 +15,7 @@ body {
     min-height: 100dvh;
     width: 100%;
     display: grid;
-    grid-template-rows: 80px 0.5fr 1fr;
+    grid-template-rows: 80px 0.5fr 1fr 70px;
     gap: 30px;
     background: var(--back_grond);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -113,6 +113,19 @@ h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     width: 90%;
     text-align: center;
+}
+
+button{
+    width: 200px;
+    height: 45px;
+    border-radius: 50px / 35px;
+    border: none;
+    outline: none;
+    background-color: var(--btn_color);
+    font-weight: bold;
+    font-size: 18px;
+    align-self: center;
+    justify-self: center;
 }
 
 @media (prefers-color-scheme: light) {
